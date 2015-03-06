@@ -47,7 +47,22 @@ end
 
 *Figure 3.*  Active Record migration for creating a dogs table
 
-In the migration, we define a class:  `CreateDogs` that inherits from `ActiveRecord::Migration`.  The name of the class describes what this migration is doing.  Then we define a `change` method that describes what running this migration will do to update the database schema.  Inside the `change` method, we say to call the [`create_table`](http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/create_table) method and pass it (1) the name of the table, `:dogs`, and (2) a block describing what to do with the table (i.e., which columns to add).  Within the block `t` refers to a `TableDefinition` object, but we can just think of it as the table being created in the database.  And the block says, add a string type column (i.e. `VARCHAR`) called `:name`, add a string type column called `:license`, add an integer type column called `:age`, etc.  We're calling the `string`, `integer`, and `timestamps` methods on the table object and passing the names of the columns as arguments.
+In the migration, we define a class:  `CreateDogs` that inherits from
+`ActiveRecord::Migration`.  The name of the class describes what this migration
+is doing.
+
+Then we define a `change` method that describes what running this migration
+will do to update the database schema.  Inside the `change` method, we say to
+call the [`create_table`](http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/create_table)
+method and pass it (1) the name of the table, `:dogs`, and (2) a block
+describing what to do with the table (i.e., which columns to add).
+
+Within the block `t` refers to a `TableDefinition` object, but we can just
+think of it as the table being created in the database.  And the block says,
+add a string type column (i.e. `VARCHAR`) called `:name`, add a string type
+column called `:license`, add an integer type column called `:age`, etc.  We're
+calling the `string`, `integer`, and `timestamps` methods on the table object
+and passing the names of the columns as arguments.
 
 A few more things to note:
 
