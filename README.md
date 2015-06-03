@@ -36,7 +36,7 @@ class CreateDogs < ActiveRecord::Migration
     create_table :dogs do |t|
       t.string   :name, null: false, limit: 50
       t.string   :license, null: false
-      t.integer  :age, limit: 2
+      t.integer  :age
       t.integer  :weight
 
       t.timestamps
