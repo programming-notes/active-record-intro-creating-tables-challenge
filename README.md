@@ -36,7 +36,7 @@ class CreateDogs < ActiveRecord::Migration
     create_table :dogs do |t|
       t.string   :name, null: false, limit: 50
       t.string   :license, null: false
-      t.integer  :age, limit: 2
+      t.integer  :age
       t.integer  :weight
 
       t.timestamps
@@ -66,7 +66,7 @@ and passing the names of the columns as arguments.
 
 ### &lt;EXTREMELY IMPORTANT&gt;
 
-What are those hash options to the left of our declarations?  Those are known
+What are those hash options to the right of our declarations?  Those are known
 as _constraints_.  We can tell the database to optimize the design of the
 table.  For example, should our database ever allow a `dogs` table row to be
 nameless, or license-less?  In those cases our database should defend itself
