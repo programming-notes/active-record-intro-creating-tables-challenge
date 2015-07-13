@@ -12,14 +12,15 @@ Rather than writing SQL, we are going to write [Active Record migrations][RailsG
 
 ```SQL
 CREATE TABLE dogs (
- id INTEGER PRIMARY KEY AUTOINCREMENT,
- name VARCHAR(50) NOT NULL,
- license VARCHAR NOT NULL,
- age INTEGER,
- weight INTEGER,
- owner_id INTEGER
- created_at DATETIME,
- updated_at DATETIME);
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(50) NOT NULL,
+  license VARCHAR NOT NULL,
+  age INTEGER,
+  weight INTEGER,
+  owner_id INTEGER
+  created_at DATETIME,
+  updated_at DATETIME
+);
 ```
 
 *Figure 2.* SQL to create a dogs table based on Figure 1.
@@ -91,7 +92,7 @@ In this challenge and many of the challenges we'll encounter going forward at De
 In this challenge, we are supplied with an Active Record migration that will create a dogs table in our database (see file `db/migrate/20140901164300_create_dogs.rb`).  We also have a spec file that tests whether or not our dogs table matches our expectations for column types and names (see file `spec/schema/dogs_table_spec.rb`).
 
 ```
-bundle exec rspec spec/schema/dogs_table_spec.rb
+$ bundle exec rspec spec/schema/dogs_table_spec.rb
 ```
 *Figure 5*.  Running the tests that describe the dogs table.
 
