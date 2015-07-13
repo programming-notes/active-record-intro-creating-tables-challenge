@@ -80,18 +80,30 @@ clean up and often requires taking a site offline.  While programming-stack appl
 ## Releases
 
 ### Release 0: Create Database and Run Given Migration
+```
+$ bundle install
+$ bundle exec rake db:create
+```
+*Figure 4*.  Installing gems listed in Gemfile and creating the database.
 
-Follow these steps to begin this challenge.  We'll be creating the database and running the provided migration, which will cause the first set of specs to pass.  The migration will create a dogs table in the database.  The specs will test that the table has been set up correctly.
+In this challenge and many of the challenges we'll encounter going forward at Dev Bootcamp, we'll need to run through some setup before beginning to work through the challenge.  We'll need to make sure that all the required gems are installed and then create the database that we'll be working with (see Figure 4).
 
-1. From the command line, run `bundle install` to ensure that the proper gems have been installed.
+In this challenge, we are supplied with an Active Record migration that will create a dogs table in our database (see file `db/migrate/20140901164300_create_dogs.rb`).  We also have a spec file that tests whether or not our dogs table matches our expectations for column types and names (see file `spec/schema/dogs_table_spec.rb`).
 
-2. Use the provided Rake task to create the database.  Run `bundle exec rake db:create`.
+```
+bundle exec rspec spec/schema/dogs_table_spec.rb
+```
+*Figure 5*.  Running the tests that describe the dogs table.
 
-3. See that the tests for the structure of the `dogs` table fail before running the migrations.  Run `bundle exec rspec spec/dogs_table_spec.rb`.
+Run the tests for just the dogs table (see Figure 5).  Looking at the output of the tests, we'll see that there's no dogs table in the database.  And, it follows that the expected columns are not found.
 
-4. Use the provided Rake task to migrate the database. Run `bundle exec rake db:migrate`.
+```
+$ bundle exec rake db:migrate
+```
+*Figure 6*.  Executing the rake task for running the database migrations.
 
-5.  See that the tests for the structure of the `dogs` table pass after running the migrations.  Rerun `bundle exec rspec spec/dogs_table_spec.rb`.
+Now let's run the provided migration to create our dogs table (see Figure 6).  After running the migration, we should run our tests again and see the tests for the dogs table pass.
+
 
 ### Release 1:  Finish the Schema
 
