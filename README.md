@@ -116,6 +116,15 @@ The tests for the people table should all pass if the migration was written prop
 
 Once all the tests for the people table pass, repeat the same process for creating the ratings table.  Once the entire test suite passes, submit your solution.
 
+
+## Conclusion
+Moving forward through Dev Bootcamp, we'll rely on Active Record migrations to update the structure of our databases.  We need to be comfortable working with them.  Do we have any questions about creating tables through migrations?  Do we understand the syntax in a migration?  Do we understand how our migration classes (e.g., `CreateDogs`) inherit behaviors like `#create_table`.
+
+In this challenge, we've focused on creating tables with a desired set of columns.  We'll learn more about updating those tables in subsequent challenges.
+
+*Note:*  We're testing the structure of our database—which tables and columns are present.  These are non-standard tests.  We generally would not write such tests, but as we're just learning to write migrations, these tests are provided to give us feedback. 
+
+
 [APIDock Add Column]: http://apidock.com/rails/v4.0.2/ActiveRecord/ConnectionAdapters/SchemaStatements/add_column
 [APIDock Create Table]:http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/create_table
 [RailsGuides Migrations]: http://guides.rubyonrails.org/migrations.html
