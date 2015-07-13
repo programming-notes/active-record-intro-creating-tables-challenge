@@ -106,14 +106,15 @@ Now let's run the provided migration to create our dogs table (see Figure 6).  A
 
 
 ### Release 1:  Finish the Schema
+Now we'll write migrations to create the remaining two tables from the schema design presented in Figure 1:  the people table and the ratings table.
 
-To complete this challenge, we'll write migrations to create the remaining two tables from our schema design in Figure 1:  The `people` table and the `ratings` table.
+Spec files have been provided that describe the expectations for these two tables.  At this point the tests for these tables fail, and we can run them to see the expectations for each table's column types and names.
 
-To begin, use the provided Rake task to run all of the specs.  Run `bundle exec rake spec`.  We'll see that the tests for the `people` and `ratings` tables fail, as we would expect.
+Let's make these tests pass.  We'll start by working on the people table.  We'll need to write a migration to create the people table with the appropriate columns.  After our migration is written, we need to run the migration.
 
-Write a migration to create the `people` table with the appropriate columns.  Use the provided Rake task to run the migrations.  Run the specs again.  The tests for the `people` table should all pass if the migration was written properly.  If any of the tests for the `people` table fail, use the provided Rake task to rollback the database (`db:rollback`), correct the migration file, run the migrations, and run the specs again.
+The tests for the people table should all pass if the migration was written properly.  If any of the tests for the people table fail, use the provided Rake task to rollback the database (`db:rollback`), correct the migration file, run the updated migrations, and run the specs again.
 
-Once all the tests for the `people` table pass, repeat the same process for creating the `ratings` table.  Once the entire test suite passes, submit your solution.
+Once all the tests for the people table pass, repeat the same process for creating the ratings table.  Once the entire test suite passes, submit your solution.
 
 [APIDock Add Column]: http://apidock.com/rails/v4.0.2/ActiveRecord/ConnectionAdapters/SchemaStatements/add_column
 [APIDock Create Table]:http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/create_table
