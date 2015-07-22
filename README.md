@@ -8,7 +8,7 @@
 
 In this challenge we'll create a database with the schema seen in Figure 1.  Up to this point in the curriculum, we've been writing SQL to create tables in our databases—even though the SQL might have been wrapped in Ruby methods.  Now, we're going to begin using Active Record to create and update our database schema. We'll write Ruby, and Active Record will write the SQL for us.
 
-Rather than writing SQL, we are going to write [Active Record migrations][RailsGuides Migrations].  We'll write one migration for each change that we want to make to our database.  For example, we'll write a migration file for each table that we want to create.  In addition, we'll write new migrations for things like adding columns to already existing tables.
+Rather than writing SQL, we are going to write [Active Record migrations][RailsGuides Migrations].  We'll write one migration for each change that we want to make to our database.  We'll write a new migration file each time we want to add a table, add a column to an existing table, remove a column, rename a column, etc.  Any change we make to our database will be written in it's own migration file.
 
 ```SQL
 CREATE TABLE dogs (
