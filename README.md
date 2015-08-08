@@ -114,7 +114,7 @@ Spec files have been provided that describe the expectations for these two table
 ```
 $ bundle exec rake generate:migration NAME=create_people
 ```
-*Figure 7.*  Executing the rake task for generating a migration to create the people table.
+*Figure 7*.  Executing the rake task for generating a migration to create the people table.
 
 Let's make these tests pass.  We'll start by working on the people table.  We'll need to write a migration to create the people table with the appropriate columns.  We can use the provided Rake task to generate the migration file for us; remember that the name of the migration should describe what it does to change the database (see Figure 7).  After our migration is written, we need to run the migration.
 
