@@ -59,17 +59,16 @@ When we call the methods for adding columns to our table, the first argument we 
 
 ### Protecting the Database with Constraints
 
-In our migration we've set up our database to defend itself against bad data.  We prevent records being added to the dogs table if the dog has no name or no license.  We've also helped to conserve space in our database by limiting a dog's name to 50 characters.  By default most databases allocate 256 characters for a string field, meaning 256 bytes are locked up for every dog.  256 bytes, so what?  Think of how many dogs are registered in the city you live.  That 256 bytes per dog could turn into gigabytes of space containing no useful information.
+In our migration we've set up our database to defend itself against bad data.  We prevent records being added to the dogs table if the dog has no name or no license.  We've also helped to conserve space in our database by limiting a dog's name to 50 characters.  By default most databases allocate 256 characters for a string field, meaning 256 bytes are locked up for every dog.  256 bytes — so what?  Think of how many dogs are registered in the city you live.  That 256 bytes per dog could turn into gigabytes of space containing no useful information.
 
-It is a mark of the best developers that they are always thinking about how to help the database defend itself from dirty data.  Dirty data is hard to
-clean up and often requires taking a site offline.  While programming-stack applications may come and go, databases tend to have a much longer service lifetime (databases from the 60's and 70's are still running in many businesses and most universities).  We'll eventually learn about validating data in our application before even trying to save it to the database, but even with validations, database constraints are your first, strongest, and most reliable means of protection against dirty data.
+It is a mark of the best developers that they are always thinking about how to help the database defend itself from dirty data.  Dirty data is hard to clean up and often requires taking a site offline.  While programming-stack applications may come and go, databases tend to have a much longer service lifetime (databases from the 60's and 70's are still running in many businesses and most universities).  We'll eventually learn about validating data in our application before even trying to save it to the database, but even with validations, database constraints are your first, strongest, and most reliable means of protection against dirty data.
 
 
 ### Notable Points on Migrations
 
 - The name of the migration file begins with a timestamp in the format YYYYMMDDHHMMSS: `20140901164300`.  This is important. Active Record uses these timestamps to keep track of the migrations that have already been run.  Each migration will only be run once.
 
-- The second half of the file name (i.e., after the timestamp) must match with the name of the class written in the migration:  `_create_dogs.rb` and `CreateDogs`.
+- The second half of the file name (i.e., after the timestamp) must match the name of the class written in the migration:  `_create_dogs.rb` and `CreateDogs`.
 
 - The class defined in the migration inherits from the class `ActiveRecord::Migration`.  This gives the class access to behaviors for updating the database—methods like `create_table`, [`add_column`][APIDock Add Column], etc.
 
