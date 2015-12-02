@@ -8,7 +8,7 @@
 
 In this challenge we'll create a database with the schema seen in Figure 1.  Up to this point in the curriculum, we've been writing SQL to create tables in our databases—even though the SQL might have been wrapped in Ruby methods.  Now, we're going to begin using Active Record to create and update our database schema. We'll write Ruby, and Active Record will write the SQL for us.
 
-Rather than writing SQL, we are going to write [Active Record migrations][RailsGuides Migrations].  We'll write one migration for each change that we want to make to our database.  We'll write a new migration file each time we want to add a table, add a column to an existing table, remove a column, rename a column, etc.  Any change we make to our database will be written in it's own migration file.
+Rather than writing SQL, we are going to write [Active Record migrations][RailsGuides Migrations].  We'll write one migration for each change that we want to make to our database.  We'll write a new migration file each time we want to add a table, add a column to an existing table, remove a column, rename a column, etc.  Any change we make to our database will be written in its own migration file.
 
 ```SQL
 CREATE TABLE dogs (
@@ -43,7 +43,7 @@ end
 
 *Figure 3.*  Active Record migration for creating a dogs table based on Figure 1.
 
-To create the dogs table from Figure 1 in SQL, we would write code akin to what we see in Figure 2.  But, now we'll want to write Active Record migrations to do this.  An Active Record migration for creating this same dogs table is provided in the file `db/migrate/20140901164300_create_dogs.rb`, and it's code can be seen in Figure 3.
+To create the dogs table from Figure 1 in SQL, we would write code akin to what we see in Figure 2.  But, now we'll want to write Active Record migrations to do this.  An Active Record migration for creating this same dogs table is provided in the file `db/migrate/20140901164300_create_dogs.rb`, and its code can be seen in Figure 3.
 
 In the migration, we define a class that inherits from the class `ActiveRecord::Migration`—we get access to the behaviors necessary for working with the database through inheritance.  Our class is named `CreateDogs`.  The name of the class describes what this migration is doing; it creates the dogs table.
 
@@ -53,7 +53,7 @@ Inside the `#change` method, we call the [`create_table`][APIDock Create Table] 
 
 When the `#create_table` method executes the block, it will pass in a `TableDefinition` object.  We can think of this object as the table being created.  We're referencing it in our migration as `t`.  As the block is executed, we take our table and we add a string-type column (i.e., `VARCHAR`) called *name*, we add a string-type column called *license*, we add an integer-type column called *age*, etc.
 
-How are we adding these columns?  We're calling the `#string` and `#integer` methods on the table object passed to the block.  We also call the `#timestamps` method; this method adds two datetime-type columns to the table:  one named *created_at* and one named *updated_at*.  It's convention to add these to our tables.
+How are we adding these columns?  We're calling the `#string` and `#integer` methods on the table object passed to the block.  We also call the `#timestamps` method; this method adds two datetime-type columns to the table:  one named *created_at* and one named *updated_at*.  It's conventional to add these to our tables.
 
 When we call the methods for adding columns to our table, the first argument we pass is the name of the column, (e.g., `:name`).  We can optionally pass in a second argument, an options hash, which we do when adding the name and license columns.  We can use these options to place *constraints* on our database—just as we could in SQL.  For example, not allowing null values for particular columns.
 
